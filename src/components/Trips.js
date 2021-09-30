@@ -18,7 +18,7 @@ const Trips = () => {
 					<ProductInfo>
 						<TextWrap>
 							<ImLocation />
-							<ProductTitle>titre</ProductTitle>
+							<ProductTitle>Brown Rock Plateau</ProductTitle>
 						</TextWrap>
 						<Button to="/trips" primary="true" round="true" css={`position: absolute; top: 47vh; font-size: 14px;`}>View Destination</Button>
 					</ProductInfo>
@@ -28,7 +28,7 @@ const Trips = () => {
 					<ProductInfo>
 						<TextWrap>
 							<ImLocation />
-							<ProductTitle>titre</ProductTitle>
+							<ProductTitle>Colorful Polar Lights</ProductTitle>
 						</TextWrap>
 						<Button to="/trips" primary="true" round="true" css={`position: absolute; top: 47vh; font-size: 14px;`}>View Destination</Button>
 					</ProductInfo>
@@ -38,7 +38,7 @@ const Trips = () => {
 					<ProductInfo>
 						<TextWrap>
 							<ImLocation />
-							<ProductTitle>titre</ProductTitle>
+							<ProductTitle>Trees On The Mountain</ProductTitle>
 						</TextWrap>
 						<Button to="/trips" primary="true" round="true" css={`position: absolute; top: 47vh; font-size: 14px;`}>View Destination</Button>
 					</ProductInfo>
@@ -48,7 +48,7 @@ const Trips = () => {
 					<ProductInfo>
 						<TextWrap>
 							<ImLocation />
-							<ProductTitle>titre</ProductTitle>
+							<ProductTitle>Landscape of Waterfalls</ProductTitle>
 						</TextWrap>
 						<Button to="/trips" primary="true" round="true" css={`position: absolute; top: 47vh; font-size: 14px;`}>View Destination</Button>
 					</ProductInfo>
