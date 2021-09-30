@@ -2,8 +2,28 @@ import React from 'react'
 import styled from 'styled-components'
 import {IoMdCheckmarkCircleOutline} from 'react-icons/io'
 import { FaRegLightbulb } from 'react-icons/fa'
+import { graphql, useStaticQuery } from 'gatsby'
+import Img from 'gatsby-image'
 
 const Testimonials = () => {
+
+	const data = useStaticQuery(graphql`
+		query MyQuery {
+			allFile(
+			filter: {ext: {regex: "/(jpg)|(png)|(jpeg) /"}, name: {in: ["portrait3", "portrait4"]}}
+			) {
+			edges {
+				node {
+				childImageSharp {
+					fluid {
+						...GatsbyImageSharpFluid
+					}
+				}
+				}
+			}
+			}
+		}
+	`)
 	return (
 		<TestimonialsContainer>
 			<TopLine>Testimonials</TopLine>
@@ -13,18 +33,27 @@ const Testimonials = () => {
 			<ContentWrapper>
 				<ColumnOne>
 					<Testimonial>
-						<IoMdCheckmarkCircleOutline />
+						<IoMdCheckmarkCircleOutline css={`color: #3fffa8;
+							font-size: 2rem;
+							margin-bottom: 1rem;
+						`}/>
 						<h3>Denise Villain</h3>
 						<p>"Maooouuuuuuuu"</p>
 					</Testimonial>
 					<Testimonial>
-						<FaRegLightbulb />
+						<FaRegLightbulb css={`color: #f9b19b;
+							font-size: 2rem;
+							margin-bottom: 1rem;
+						`}/>
 						<h3>Raoul Villain</h3>
 						<p>"Mi"</p>
 					</Testimonial>
 				</ColumnOne>
 				<ColumnTwo>
-					<Img src="" alt=""/>
+					{data.allFile.edges.map((image, key) => 
+						(<Images key={key} fluid={image.node.childImageSharp.fluid}/>)
+					)}
+					
 				</ColumnTwo>
 			</ContentWrapper>
 		</TestimonialsContainer>
@@ -35,14 +64,14 @@ export default Testimonials
 
 const TestimonialsContainer = styled.div`
 	width: 100%;
-	background: #fcfcfc;
-	color: #000;
+	background: #2927a9;
+	color: #fefefe;
 	padding: 5rem calc((100vw - 1300px) / 2);
 	height: 100%;
 `
 
 const TopLine = styled.p`
-	color: #077BF1;
+	color: #0bf107;
 	font-size: 1rem;
 	padding-left: 2rem;
 	margin-bottom: 0.75rem;
@@ -68,7 +97,7 @@ const ContentWrapper = styled.div`
 
 const ColumnOne = styled.div`
 	display: grid;
-	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr;
 
 	
 
@@ -96,10 +125,11 @@ const Testimonial = styled.div`
 	}
 
 	p {
-		color: #3b3b3b;
+		color: #fefefe;
 	}
 `
-const Img =styled.img`
+
+const Images = styled(Img)`
 	border-radius: 10px;
 	height: 100%;
 `
